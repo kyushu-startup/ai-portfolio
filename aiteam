@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Portfolio & Resources</title>
+  <meta name="description" content="AIで設計し、AIで制作し、実装したLP・資料・業務設計のポートフォリオと資料ライブラリ。" />
+  <meta property="og:title" content="AI Portfolio & Resources" />
+  <meta property="og:description" content="AIで設計し、AIで制作し、実装した成果物と、無料で使える資料ライブラリ。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./ogp.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050506;
+      --bg-soft: #0b0b0e;
+      --card: rgba(255, 255, 255, 0.055);
+      --card-strong: rgba(255, 255, 255, 0.09);
+      --line: rgba(255, 255, 255, 0.12);
+      --text: #f7f4ea;
+      --muted: #aaa59a;
+      --gold: #d8b76a;
+      --gold-2: #fff0b8;
+      --accent: #8d6f31;
+      --shadow: 0 24px 80px rgba(0,0,0,.45);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 20% 5%, rgba(216,183,106,.18), transparent 30%),
+        radial-gradient(circle at 80% 0%, rgba(255,255,255,.08), transparent 25%),
+        radial-gradient(circle at 50% 60%, rgba(216,183,106,.08), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Inter", "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.55), transparent 75%);
+      z-index: -2;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(100% - 40px, var(--max)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5,5,6,.62);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-2), var(--gold), #6b4a16);
+      box-shadow: 0 0 34px rgba(216,183,106,.38);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      padding: 10px 16px;
+      border: 1px solid rgba(216,183,106,.45);
+      border-radius: 999px;
+      color: var(--gold-2);
+      font-weight: 700;
+      font-size: 13px;
+      background: rgba(216,183,106,.08);
+    }
+
+    .hero {
+      padding: 112px 0 86px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border: 1px solid rgba(216,183,106,.28);
+      border-radius: 999px;
+      color: var(--gold-2);
+      background: rgba(216,183,106,.08);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 16px var(--gold);
+    }
+    h1 {
+      font-size: clamp(44px, 7vw, 88px);
+      line-height: 1.02;
+      letter-spacing: -.075em;
+      margin: 0 0 26px;
+    }
+    .grad {
+      background: linear-gradient(115deg, #fff, var(--gold-2), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .lead {
+      color: #c9c3b6;
+      font-size: clamp(16px, 2vw, 20px);
+      max-width: 680px;
+      margin: 0 0 36px;
+    }
+    .hero-actions, .section-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      transition: .22s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .btn-primary {
+      color: #17130a;
+      background: linear-gradient(135deg, var(--gold-2), var(--gold));
+      box-shadow: 0 14px 44px rgba(216,183,106,.28);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 60px rgba(216,183,106,.34); }
+    .btn-ghost {
+      border-color: rgba(255,255,255,.16);
+      color: var(--text);
+      background: rgba(255,255,255,.045);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.085); transform: translateY(-2px); }
+
+    .hero-panel {
+      position: relative;
+      min-height: 520px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 38px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.025)),
+        rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 28px;
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: conic-gradient(from 180deg, transparent, rgba(216,183,106,.2), transparent, rgba(255,255,255,.08), transparent);
+      animation: spin 18s linear infinite;
+      opacity: .7;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .panel-inner {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      border-radius: 28px;
+      background: rgba(5,5,6,.76);
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 24px;
+    }
+    .floating-card {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      border-radius: 22px;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+    .floating-card small { color: var(--gold-2); font-weight: 800; letter-spacing: .08em; }
+    .floating-card h3 { margin: 8px 0 4px; font-size: 22px; letter-spacing: -.04em; }
+    .floating-card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+    .metric {
+      border-radius: 18px;
+      background: rgba(216,183,106,.08);
+      border: 1px solid rgba(216,183,106,.15);
+      padding: 16px;
+    }
+    .metric strong { display: block; font-size: 26px; color: var(--gold-2); line-height: 1; }
+    .metric span { color: var(--muted); font-size: 12px; }
+
+    section { padding: 82px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+    .section-kicker {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(32px, 4.5vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -.06em;
+    }
+    .section-desc { color: var(--muted); max-width: 520px; margin: 0; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+    .resource-card, .portfolio-card, .contact-box {
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 16px 44px rgba(0,0,0,.24);
+      transition: .22s ease;
+    }
+    .resource-card:hover, .portfolio-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(216,183,106,.38);
+      background: linear-gradient(180deg, rgba(216,183,106,.11), rgba(255,255,255,.04));
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .tag {
+      font-size: 12px;
+      color: var(--gold-2);
+      border: 1px solid rgba(216,183,106,.24);
+      background: rgba(216,183,106,.08);
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    .resource-card h3, .portfolio-card h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -.035em; }
+    .resource-card p, .portfolio-card p { color: var(--muted); margin: 0 0 22px; font-size: 14px; }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold-2);
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .thumb {
+      height: 220px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(circle at 30% 10%, rgba(216,183,106,.38), transparent 32%),
+        linear-gradient(135deg, rgba(255,255,255,.1), rgba(255,255,255,.02));
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .thumb::after {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.32));
+    }
+    .thumb-title {
+      position: absolute;
+      z-index: 2;
+      left: 24px;
+      bottom: 22px;
+      right: 24px;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -.045em;
+    }
+
+    .build-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .build-item {
+      min-height: 140px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.045);
+      padding: 18px;
+      color: #ddd6c8;
+      font-weight: 800;
+      display: flex;
+      align-items: end;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 34px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(216,183,106,.18), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
+    }
+    .contact-box h2 { margin-bottom: 12px; }
+    .contact-box p { color: var(--muted); margin: 0; max-width: 620px; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 34px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+
+    .reveal { opacity: 0; transform: translateY(22px); animation: reveal .8s ease forwards; }
+    .delay-1 { animation-delay: .08s; }
+    .delay-2 { animation-delay: .16s; }
+    .delay-3 { animation-delay: .24s; }
+    @keyframes reveal { to { opacity: 1; transform: none; } }
+
+    @media (max-width: 920px) {
+      .hero-grid, .grid-3, .grid-2, .contact-box { grid-template-columns: 1fr; }
+      .hero { padding-top: 72px; }
+      .hero-panel { min-height: auto; }
+      .section-head { display: block; }
+      .section-desc { margin-top: 16px; }
+      .build-list { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .nav-cta { display: none; }
+      .metric-row { grid-template-columns: 1fr; }
+      .build-list { grid-template-columns: 1fr; }
+      .contact-box { padding: 24px; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    使い方：
+    1. このファイルを index.html として保存
+    2. Google Form のURL、各ポートフォリオURLを差し替え
+    3. GitHub Pagesで公開
+  -->
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="AI Portfolio & Resources">
+        <span class="brand-mark"></span>
+        <span>AI Portfolio & Resources</span>
+      </a>
+      <div class="nav-links">
+        <a href="#resources">Resources</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#build">Build</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="https://forms.gle/REPLACE_CONSULT_FORM" target="_blank" rel="noopener">30分相談</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">AI-MADE / HUMAN-DIRECTED</div>
+          <h1>AIでつくる、<br><span class="grad">実装できる資料と成果物。</span></h1>
+          <p class="lead">
+            LP、業務テンプレート、AI活用資料、ポートフォリオを公開しています。<br>
+            気になる資料は無料ダウンロード。制作や活用の相談も30分から気軽にどうぞ。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#resources">資料を見る</a>
+            <a class="btn btn-ghost" href="#portfolio">制作実績を見る</a>
+            <a class="btn btn-ghost" href="https://forms.gle/REPLACE_CONSULT_FORM" target="_blank" rel="noopener">30分相談する</a>
+          </div>
+        </div>
+
+        <div class="hero-panel reveal delay-1" aria-label="Portfolio preview">
+          <div class="panel-inner">
+            <div class="floating-card">
+              <small>RESOURCE</small>
+              <h3>AIチーム化チェックリスト</h3>
+              <p>自社のAI活用レベルを整理するための実践テンプレート。</p>
+            </div>
+            <div class="floating-card">
+              <small>PORTFOLIO</small>
+              <h3>GitHub Pages LP</h3>
+              <p>ChatGPTと画像生成AIで制作した、公開済みランディングページ。</p>
+            </div>
+            <div class="floating-card">
+              <small>CONSULTATION</small>
+              <h3>30min AI相談</h3>
+              <p>資料・制作物を見ながら、AI活用やLP制作について壁打ちできます。</p>
+            </div>
+            <div class="metric-row">
+              <div class="metric"><strong>12+</strong><span>Templates</span></div>
+              <div class="metric"><strong>5+</strong><span>Cases</span></div>
+              <div class="metric"><strong>0円</strong><span>GitHub公開</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="resources">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Resource Library</div>
+            <h2>無料資料ダウンロード</h2>
+          </div>
+          <p class="section-desc">AI活用、広報、営業、業務設計に使える資料を順次公開。ダウンロードはGoogleフォームから受け付けています。</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="resource-card reveal delay-1">
+            <div class="tag-row"><span class="tag">PDF</span><span class="tag">AI活用</span></div>
+            <h3>AIチーム化チェックリスト</h3>
+            <p>個人利用で止まっているAI活用を、役割設計・業務設計まで広げるための確認シート。</p>
+            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_1" target="_blank" rel="noopener">ダウンロード →</a>
+          </article>
+
+          <article class="resource-card reveal delay-2">
+            <div class="tag-row"><span class="tag">PDF</span><span class="tag">広報</span></div>
+            <h3>AI広報運用テンプレート</h3>
+            <p>note、SNS、採用広報、社内報をAIと一緒に運用するための基本フォーマット。</p>
+            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_2" target="_blank" rel="noopener">ダウンロード →</a>
+          </article>
+
+          <article class="resource-card reveal delay-3">
+            <div class="tag-row"><span class="tag">PDF</span><span class="tag">営業</span></div>
+            <h3>AI営業プロンプト集</h3>
+            <p>顧客理解、提案書、商談準備、メール文面作成に使える営業向けプロンプト集。</p>
+            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_3" target="_blank" rel="noopener">ダウンロード →</a>
+          </article>
+
+          <article class="resource-card reveal delay-1">
+            <div class="tag-row"><span class="tag">PDF</span><span class="tag">導入設計</span></div>
+            <h3>AI活用ロードマップ</h3>
+            <p>最初の1週間、30日、90日で何を整えるかを整理した実装ステップ資料。</p>
+            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_4" target="_blank" rel="noopener">ダウンロード →</a>
+          </article>
+
+          <article class="resource-card reveal delay-2">
+            <div class="tag-row"><span class="tag">PDF</span><span class="tag">LP制作</span></div>
+            <h3>AI LP制作ワークフロー</h3>
+            <p>企画、コピー、画像、HTML、GitHub Pages公開までの制作フローをまとめた資料。</p>
+            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_5" target="_blank" rel="noopener">ダウンロード →</a>
+          </article>
+
+          <article class="resource-card reveal delay-3">
+            <div class="tag-row"><span class="tag">Coming Soon</span></div>
+            <h3>資料を追加予定</h3>
+            <p>実際に使えるテンプレート、プロンプト、事例資料を順次公開していきます。</p>
+            <a class="card-link" href="https://forms.gle/REPLACE_CONSULT_FORM" target="_blank" rel="noopener">リクエストする →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Portfolio</div>
+            <h2>制作ポートフォリオ</h2>
+          </div>
+          <p class="section-desc">ChatGPTでコードを生成し、画像生成AIでビジュアルを作成し、GitHub Pagesで公開した実装事例。</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="portfolio-card reveal delay-1">
+            <div class="thumb"><div class="thumb-title">Meaning Sync Architect</div></div>
+            <div class="tag-row"><span class="tag">LP</span><span class="tag">広報5.5</span><span class="tag">GitHub Pages</span></div>
+            <h3>Meaning Sync Architect</h3>
+            <p>組織内の言葉のズレを整える、法人向け広報・意味同期サービスLP。</p>
+            <a class="card-link" href="https://kyushu-startup.github.io/public2.0/" target="_blank" rel="noopener">View Project →</a>
+          </article>
+
+          <article class="portfolio-card reveal delay-2">
+            <div class="thumb"><div class="thumb-title">Kyushu Startup Accelerator</div></div>
+            <div class="tag-row"><span class="tag">LP</span><span class="tag">Event</span><span class="tag">AI制作</span></div>
+            <h3>Kyushu Startup Accelerator 2026</h3>
+            <p>九州発スタートアップコミュニティの世界観を表現したイベントLP。</p>
+            <a class="card-link" href="https://kyushu-startup.github.io/kyushu-accelerator-2026/" target="_blank" rel="noopener">View Project →</a>
+          </article>
+
+          <article class="portfolio-card reveal delay-1">
+            <div class="thumb"><div class="thumb-title">AI Team Design</div></div>
+            <div class="tag-row"><span class="tag">Coming Soon</span><span class="tag">AI活用</span></div>
+            <h3>AI Team Design</h3>
+            <p>AIをツールではなく、役割を持つチームとして設計するためのコンセプトページ。</p>
+            <a class="card-link" href="#contact">相談する →</a>
+          </article>
+
+          <article class="portfolio-card reveal delay-2">
+            <div class="thumb"><div class="thumb-title">Resource System</div></div>
+            <div class="tag-row"><span class="tag">Template</span><span class="tag">Lead Gen</span></div>
+            <h3>資料ライブラリ設計</h3>
+            <p>Googleフォームと無料資料を組み合わせた、問い合わせ前の信頼形成導線。</p>
+            <a class="card-link" href="#resources">資料を見る →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="build">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">What We Build</div>
+            <h2>作れるもの</h2>
+          </div>
+          <p class="section-desc">大きなメッセージよりも、実際に使える成果物を重視しています。</p>
+        </div>
+        <div class="build-list reveal delay-1">
+          <div class="build-item">Landing Pages</div>
+          <div class="build-item">AI Workflows</div>
+          <div class="build-item">Resource PDFs</div>
+          <div class="build-item">Prompt Kits</div>
+          <div class="build-item">Portfolio Sites</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2>資料だけでも、相談だけでも。</h2>
+            <p>
+              AIで作るLP、資料、業務テンプレート、ポートフォリオについて、30分から気軽に相談できます。
+              まずはフォームから内容をお知らせください。
+            </p>
+          </div>
+          <div class="section-actions">
+            <a class="btn btn-primary" href="https://forms.gle/REPLACE_CONSULT_FORM" target="_blank" rel="noopener">30分相談する</a>
+            <a class="btn btn-ghost" href="#resources">資料を見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 AI Portfolio & Resources</span>
+      <span>Built with AI / Published on GitHub Pages</span>
+    </div>
+  </footer>
+</body>
+</html>

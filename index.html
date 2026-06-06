@@ -12,32 +12,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #050506;
-      --card: rgba(255, 255, 255, 0.055);
-      --line: rgba(255, 255, 255, 0.12);
       --text: #f7f4ea;
       --muted: #aaa59a;
       --muted-2: #d5cfc3;
       --gold: #d8b76a;
       --gold-2: #fff0b8;
-      --shadow: 0 24px 80px rgba(0,0,0,.45);
       --radius: 28px;
       --max: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       background:
-        radial-gradient(circle at 18% 2%, rgba(216,183,106,.18), transparent 31%),
-        radial-gradient(circle at 82% 0%, rgba(255,255,255,.08), transparent 24%),
-        radial-gradient(circle at 50% 58%, rgba(216,183,106,.08), transparent 33%),
+        linear-gradient(rgba(5,5,6,.82), rgba(5,5,6,.92)),
+        url('./背景.jpg') center center / cover no-repeat fixed,
         var(--bg);
       color: var(--text);
-      font-family: "Inter", "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
       line-height: 1.78;
       overflow-x: hidden;
     }
@@ -66,6 +64,7 @@
       background: rgba(5,5,6,.62);
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
+
     .nav-inner {
       height: 74px;
       display: flex;
@@ -73,6 +72,7 @@
       justify-content: space-between;
       gap: 24px;
     }
+
     .brand {
       display: flex;
       align-items: center;
@@ -80,6 +80,7 @@
       font-weight: 900;
       letter-spacing: -.03em;
     }
+
     .brand-mark {
       width: 34px;
       height: 34px;
@@ -87,13 +88,16 @@
       background: linear-gradient(135deg, var(--gold-2), var(--gold), #6b4a16);
       box-shadow: 0 0 34px rgba(216,183,106,.38);
     }
+
     .nav-links {
       display: flex;
       gap: 24px;
       color: var(--muted);
       font-size: 14px;
     }
+
     .nav-links a:hover { color: var(--text); }
+
     .nav-cta {
       padding: 10px 16px;
       border: 1px solid rgba(216,183,106,.45);
@@ -104,13 +108,15 @@
       background: rgba(216,183,106,.08);
     }
 
-    .hero { padding: 112px 0 80px; position: relative; }
+    .hero { padding: 112px 0 80px; }
+
     .hero-grid {
       display: grid;
       grid-template-columns: 1.08fr .92fr;
       gap: 56px;
       align-items: center;
     }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -124,6 +130,7 @@
       font-weight: 800;
       margin-bottom: 28px;
     }
+
     .eyebrow::before {
       content: "";
       width: 8px;
@@ -132,37 +139,44 @@
       background: var(--gold);
       box-shadow: 0 0 16px var(--gold);
     }
+
     h1 {
       font-size: clamp(43px, 7vw, 86px);
       line-height: 1.03;
       letter-spacing: -.075em;
       margin: 0 0 26px;
     }
+
     .grad {
       background: linear-gradient(115deg, #fff, var(--gold-2), var(--gold));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
+
     .lead {
       color: #c9c3b6;
       font-size: clamp(16px, 2vw, 20px);
       max-width: 700px;
       margin: 0 0 18px;
     }
+
     .lead strong { color: var(--text); font-weight: 800; }
+
     .sublead {
       color: var(--muted);
       font-size: 15px;
       margin: 0 0 34px;
       max-width: 660px;
     }
+
     .hero-actions, .section-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
       align-items: center;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -171,24 +185,38 @@
       padding: 0 22px;
       border-radius: 999px;
       font-weight: 900;
-      letter-spacing: -.01em;
       transition: .22s ease;
       border: 1px solid transparent;
       cursor: pointer;
     }
+
     .btn-primary {
       color: #17130a;
       background: linear-gradient(135deg, var(--gold-2), var(--gold));
       box-shadow: 0 14px 44px rgba(216,183,106,.28);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 60px rgba(216,183,106,.34); }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 60px rgba(216,183,106,.34);
+    }
+
     .btn-ghost {
       border-color: rgba(255,255,255,.16);
       color: var(--text);
       background: rgba(255,255,255,.045);
     }
-    .btn-ghost:hover { background: rgba(255,255,255,.085); transform: translateY(-2px); }
-    .microcopy { color: var(--muted); font-size: 12px; margin-top: 12px; }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,.085);
+      transform: translateY(-2px);
+    }
+
+    .microcopy {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 12px;
+    }
 
     .hero-panel {
       position: relative;
@@ -196,10 +224,11 @@
       border: 1px solid rgba(255,255,255,.14);
       border-radius: 38px;
       background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.025)), rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
       overflow: hidden;
       padding: 28px;
     }
+
     .hero-panel::before {
       content: "";
       position: absolute;
@@ -208,7 +237,9 @@
       animation: spin 18s linear infinite;
       opacity: .7;
     }
+
     @keyframes spin { to { transform: rotate(360deg); } }
+
     .panel-inner {
       position: relative;
       z-index: 2;
@@ -218,6 +249,7 @@
       border: 1px solid rgba(255,255,255,.1);
       padding: 24px;
     }
+
     .operator-card {
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
@@ -225,10 +257,33 @@
       padding: 22px;
       margin-bottom: 14px;
     }
-    .operator-card small { color: var(--gold-2); font-weight: 900; letter-spacing: .09em; }
-    .operator-card h3 { margin: 10px 0 6px; font-size: 24px; letter-spacing: -.04em; line-height: 1.25; }
-    .operator-card p { margin: 0; color: var(--muted); font-size: 14px; }
-    .ai-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 18px; }
+
+    .operator-card small {
+      color: var(--gold-2);
+      font-weight: 900;
+      letter-spacing: .09em;
+    }
+
+    .operator-card h3 {
+      margin: 10px 0 6px;
+      font-size: 24px;
+      letter-spacing: -.04em;
+      line-height: 1.25;
+    }
+
+    .operator-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .ai-stack {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
     .ai-pill {
       border-radius: 18px;
       background: rgba(216,183,106,.08);
@@ -237,9 +292,17 @@
       font-weight: 900;
       color: var(--gold-2);
     }
-    .ai-pill span { display: block; color: var(--muted); font-size: 12px; font-weight: 600; margin-top: 2px; }
+
+    .ai-pill span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
 
     section { padding: 82px 0; }
+
     .section-head {
       display: flex;
       justify-content: space-between;
@@ -247,6 +310,7 @@
       align-items: end;
       margin-bottom: 34px;
     }
+
     .section-kicker {
       color: var(--gold);
       font-size: 13px;
@@ -255,16 +319,31 @@
       text-transform: uppercase;
       margin-bottom: 10px;
     }
+
     h2 {
       margin: 0;
       font-size: clamp(32px, 4.5vw, 56px);
       line-height: 1.08;
       letter-spacing: -.06em;
     }
-    .section-desc { color: var(--muted); max-width: 560px; margin: 0; }
 
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .section-desc {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
 
     .card, .portfolio-card, .contact-box, .story-box, .benefit-box {
       border: 1px solid rgba(255,255,255,.12);
@@ -274,13 +353,26 @@
       box-shadow: 0 16px 44px rgba(0,0,0,.24);
       transition: .22s ease;
     }
+
     .card:hover, .portfolio-card:hover {
       transform: translateY(-5px);
       border-color: rgba(216,183,106,.38);
       background: linear-gradient(180deg, rgba(216,183,106,.11), rgba(255,255,255,.04));
     }
-    .card h3, .portfolio-card h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -.035em; line-height: 1.3; }
-    .card p, .portfolio-card p { color: var(--muted); margin: 0 0 22px; font-size: 14px; }
+
+    .card h3, .portfolio-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -.035em;
+      line-height: 1.3;
+    }
+
+    .card p, .portfolio-card p {
+      color: var(--muted);
+      margin: 0 0 22px;
+      font-size: 14px;
+    }
+
     .num {
       display: inline-flex;
       width: 34px;
@@ -294,7 +386,14 @@
       font-weight: 900;
       margin-bottom: 18px;
     }
-    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
     .tag {
       font-size: 12px;
       color: var(--gold-2);
@@ -304,6 +403,7 @@
       border-radius: 999px;
       font-weight: 800;
     }
+
     .card-link {
       display: inline-flex;
       align-items: center;
@@ -323,6 +423,7 @@
         radial-gradient(circle at 10% 0%, rgba(216,183,106,.18), transparent 34%),
         linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
     }
+
     .story-quote {
       font-size: clamp(26px, 3.5vw, 42px);
       line-height: 1.25;
@@ -330,8 +431,11 @@
       font-weight: 900;
       margin: 0;
     }
-    .story-text p { color: var(--muted-2); margin: 0 0 16px; }
-    .story-text p:last-child { margin-bottom: 0; }
+
+    .story-text p {
+      color: var(--muted-2);
+      margin: 0 0 16px;
+    }
 
     .benefit-box {
       padding: 34px;
@@ -339,13 +443,15 @@
         radial-gradient(circle at 80% 0%, rgba(216,183,106,.16), transparent 32%),
         linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
     }
+
     .benefit-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
       margin-top: 24px;
     }
-    .benefit-item {
+
+    .benefit-item, .pain-item {
       border: 1px solid rgba(255,255,255,.1);
       background: rgba(255,255,255,.045);
       border-radius: 22px;
@@ -358,21 +464,18 @@
       height: 220px;
       border-radius: 24px;
       border: 1px solid rgba(255,255,255,.12);
-      background:
-        radial-gradient(circle at 30% 10%, rgba(216,183,106,.38), transparent 32%),
-        linear-gradient(135deg, rgba(255,255,255,.1), rgba(255,255,255,.02));
       margin-bottom: 20px;
       position: relative;
       overflow: hidden;
     }
+
     .thumb::after {
       content: "";
       position: absolute;
-      inset: 20px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.32));
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.62));
     }
+
     .thumb-title {
       position: absolute;
       z-index: 2;
@@ -383,20 +486,29 @@
       font-weight: 900;
       letter-spacing: -.045em;
       line-height: 1.18;
+      text-shadow: 0 8px 24px rgba(0,0,0,.55);
+    }
+
+    .thumb-badge {
+      position: absolute;
+      z-index: 3;
+      top: 18px;
+      left: 18px;
+      color: var(--gold-2);
+      border: 1px solid rgba(216,183,106,.36);
+      background: rgba(5,5,6,.52);
+      backdrop-filter: blur(10px);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
     }
 
     .pain-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
-    }
-    .pain-item {
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.045);
-      border-radius: 22px;
-      padding: 18px;
-      color: #ddd6c8;
-      font-weight: 800;
     }
 
     .note-strip {
@@ -409,8 +521,17 @@
       gap: 22px;
       align-items: center;
     }
-    .note-strip h3 { margin: 0 0 6px; font-size: 24px; letter-spacing: -.04em; }
-    .note-strip p { margin: 0; color: var(--muted); }
+
+    .note-strip h3 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      letter-spacing: -.04em;
+    }
+
+    .note-strip p {
+      margin: 0;
+      color: var(--muted);
+    }
 
     .contact-box {
       display: grid;
@@ -422,8 +543,14 @@
         radial-gradient(circle at 10% 0%, rgba(216,183,106,.2), transparent 34%),
         linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
     }
+
     .contact-box h2 { margin-bottom: 12px; }
-    .contact-box p { color: var(--muted); margin: 0; max-width: 660px; }
+
+    .contact-box p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 660px;
+    }
 
     footer {
       border-top: 1px solid rgba(255,255,255,.08);
@@ -431,16 +558,32 @@
       color: var(--muted);
       font-size: 13px;
     }
-    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
 
-    .reveal { opacity: 0; transform: translateY(22px); animation: reveal .8s ease forwards; }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: reveal .8s ease forwards;
+    }
+
     .delay-1 { animation-delay: .08s; }
     .delay-2 { animation-delay: .16s; }
     .delay-3 { animation-delay: .24s; }
-    @keyframes reveal { to { opacity: 1; transform: none; } }
+
+    @keyframes reveal {
+      to { opacity: 1; transform: none; }
+    }
 
     @media (max-width: 920px) {
-      .hero-grid, .grid-3, .grid-2, .story-box, .contact-box, .note-strip { grid-template-columns: 1fr; }
+      .hero-grid, .grid-3, .grid-2, .story-box, .contact-box, .note-strip {
+        grid-template-columns: 1fr;
+      }
+
       .hero { padding-top: 72px; }
       .hero-panel { min-height: auto; }
       .section-head { display: block; }
@@ -448,6 +591,7 @@
       .nav-links { display: none; }
       .benefit-list { grid-template-columns: 1fr; }
     }
+
     @media (max-width: 640px) {
       .container { width: min(100% - 28px, var(--max)); }
       .nav-cta { display: none; }
@@ -458,20 +602,15 @@
     }
   </style>
 </head>
-<body>
-  <!--
-    使い方：
-    1. このファイルを index.html として保存
-    2. REPLACE_CONSULT_FORM などのURLを差し替え
-    3. GitHub Pagesで公開
-  -->
 
+<body>
   <nav class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="AI Team Operator">
         <span class="brand-mark"></span>
         <span>AI Team Operator</span>
       </a>
+
       <div class="nav-links">
         <a href="#story">About</a>
         <a href="#works">Works</a>
@@ -479,7 +618,10 @@
         <a href="#resources">Resources</a>
         <a href="#contact">Contact</a>
       </div>
-      <a class="nav-cta" href="https://forms.gle/REPLACE_CONSULT_FORM" target="_blank" rel="noopener noreferrer">30分だけ相談してみる</a>
+
+      <a class="nav-cta" href="https://timerex.net/s/kenji806162005_b1f5/738f0e57/" target="_blank" rel="noopener noreferrer">
+        30分だけ相談してみる
+      </a>
     </div>
   </nav>
 
@@ -488,21 +630,28 @@
       <div class="container hero-grid">
         <div class="reveal">
           <div class="eyebrow">NON-ENGINEER / AI TEAM MANAGEMENT</div>
+
           <h1>非エンジニアでも、<br><span class="grad">AIチームは作れる。</span></h1>
+
           <p class="lead">
             私はエンジニアではありません。<br>
             それでも <strong>ChatGPT、Claude、NotebookLM、Gemini</strong> などを組み合わせ、
             企画・広報・制作を「AIチーム」として動かす実践をしています。
           </p>
+
           <p class="sublead">
             コードが書けなくても大丈夫です。まずは、今の仕事をAIにどう分担するかを一緒に整理します。
           </p>
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://forms.gle/REPLACE_CONSULT_FORM" target="_blank" rel="noopener noreferrer">30分だけ相談してみる</a>
+            <a class="btn btn-primary" href="https://timerex.net/s/kenji806162005_b1f5/738f0e57/" target="_blank" rel="noopener noreferrer">
+              30分だけ相談してみる
+            </a>
             <a class="btn btn-ghost" href="#works">作ったものを見る</a>
             <a class="btn btn-ghost" href="#resources">資料を見る</a>
           </div>
-          <div class="microcopy">無料・オンライン可。売り込みではなく、まずは現状整理から。</div>
+
+          <div class="microcopy">✓ 無料相談　✓ オンライン対応　✓ 非エンジニア歓迎</div>
         </div>
 
         <div class="hero-panel reveal delay-1" aria-label="AI team operator preview">
@@ -512,11 +661,13 @@
               <h3>AIを使う人から、AIチームを動かす人へ。</h3>
               <p>ツールを単体で使うのではなく、役割を分けて連携させ、成果物まで作り切る実践。</p>
             </div>
+
             <div class="operator-card">
               <small>OUTPUT</small>
               <h3>LP、資料、記事、企画をAIと制作。</h3>
               <p>無料ツール中心でも、プロ仕様に近いアウトプットを作れることを検証しています。</p>
             </div>
+
             <div class="ai-stack">
               <div class="ai-pill">ChatGPT<span>設計・コード・壁打ち</span></div>
               <div class="ai-pill">Claude<span>文章・構成・レビュー</span></div>
@@ -532,6 +683,7 @@
       <div class="container">
         <div class="story-box reveal">
           <p class="story-quote">同じ悩みを持つ人にとって、少し先の実践者でありたい。</p>
+
           <div class="story-text">
             <p>
               AIを触ってはいる。でも、仕事の成果にどうつなげればいいか分からない。
@@ -556,40 +708,62 @@
             <div class="section-kicker">Works / Proof</div>
             <h2>実際に作ったもの</h2>
           </div>
-          <p class="section-desc">「AIで何ができるのか」を、言葉ではなく成果物で見てもらうためのポートフォリオです。</p>
+          <p class="section-desc">
+            「AIで何ができるのか」を、言葉ではなく成果物で見てもらうためのポートフォリオです。
+          </p>
         </div>
 
         <div class="grid-2">
           <article class="portfolio-card reveal delay-1">
-            <div class="thumb"><div class="thumb-title">Kyushu Startup Accelerator</div></div>
+            <div class="thumb" style="background:url('./九州アクセラレーター.jpg') center center / cover no-repeat;">
+              <div class="thumb-badge">AI BUILT</div>
+              <div class="thumb-title">Kyushu Startup Accelerator</div>
+            </div>
             <div class="tag-row"><span class="tag">LP</span><span class="tag">AI制作</span><span class="tag">GitHub Pages</span></div>
             <h3>Kyushu Startup Accelerator 2026</h3>
             <p>ChatGPTでコードを生成し、画像生成AIで世界観を作り、GitHub Pagesで無料公開したイベントLP。</p>
-            <a class="card-link" href="https://kyushu-startup.github.io/kyushu-accelerator-2026/" target="_blank" rel="noopener noreferrer">View Project →</a>
+            <a class="card-link" href="https://kyushu-startup.github.io/kyushu-accelerator-2026/" target="_blank" rel="noopener noreferrer">
+              View Project →
+            </a>
           </article>
 
           <article class="portfolio-card reveal delay-2">
-            <div class="thumb"><div class="thumb-title">Meaning Sync Architect</div></div>
+            <div class="thumb" style="background:url('./広報LP.jpg') center center / cover no-repeat;">
+              <div class="thumb-badge">AI BUILT</div>
+              <div class="thumb-title">Meaning Sync Architect</div>
+            </div>
             <div class="tag-row"><span class="tag">LP</span><span class="tag">広報5.5</span><span class="tag">意味同期</span></div>
             <h3>Meaning Sync Architect</h3>
             <p>企業の言葉のズレを整える、広報・意味同期サービスのコンセプトLP。</p>
-            <a class="card-link" href="https://kyushu-startup.github.io/public2.0/" target="_blank" rel="noopener noreferrer">View Project →</a>
+            <a class="card-link" href="https://kyushu-startup.github.io/public2.0/" target="_blank" rel="noopener noreferrer">
+              View Project →
+            </a>
           </article>
 
           <article class="portfolio-card reveal delay-1">
-            <div class="thumb"><div class="thumb-title">LP制作マニュアル</div></div>
+            <div class="thumb" style="background:url('./LP制作マニュアル.jpg') center center / cover no-repeat;">
+              <div class="thumb-badge">RESOURCE</div>
+              <div class="thumb-title">LP制作マニュアル</div>
+            </div>
             <div class="tag-row"><span class="tag">Manual</span><span class="tag">非エンジニア向け</span><span class="tag">0円制作</span></div>
             <h3>非エンジニアのためのLP制作マニュアル</h3>
             <p>ChatGPT、GitHub、Googleフォームを使い、デザイン性の高いLPを無料で作るための実践資料。</p>
-            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_MANUAL" target="_blank" rel="noopener noreferrer">資料を受け取る →</a>
+            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_MANUAL" target="_blank" rel="noopener noreferrer">
+              資料を受け取る →
+            </a>
           </article>
 
           <article class="portfolio-card reveal delay-2">
-            <div class="thumb"><div class="thumb-title">AI Team Workflow</div></div>
+            <div class="thumb" style="background:url('./aiteamwork.jpg') center center / cover no-repeat;">
+              <div class="thumb-badge">WORKFLOW</div>
+              <div class="thumb-title">AI Team Workflow</div>
+            </div>
             <div class="tag-row"><span class="tag">Consulting</span><span class="tag">Workflow</span><span class="tag">Coming Soon</span></div>
             <h3>AIチーム運用ワークフロー</h3>
             <p>複数AIを役割分担させ、企画・制作・発信まで進めるための運用モデルを整理中です。</p>
-            <a class="card-link" href="https://forms.gle/REPLACE_CONSULT_FORM" target="_blank" rel="noopener noreferrer">30分だけ相談してみる →</a>
+            <a class="card-link" href="https://timerex.net/s/kenji806162005_b1f5/738f0e57/" target="_blank" rel="noopener noreferrer">
+              30分だけ相談してみる →
+            </a>
           </article>
         </div>
       </div>
@@ -603,6 +777,7 @@
           <p class="section-desc" style="margin-top: 14px;">
             いきなり高度なAI導入を目指すのではなく、今の業務・発信・制作をどうAIと分担するかを具体化します。
           </p>
+
           <div class="benefit-list">
             <div class="benefit-item">自分の業務のどこにAIを入れるべきか分かる</div>
             <div class="benefit-item">ChatGPT以外のAIの使い分けが分かる</div>
@@ -611,8 +786,12 @@
             <div class="benefit-item">noteや発信を成果物につなげる流れが分かる</div>
             <div class="benefit-item">外注前に、自分でどこまで作れるか判断できる</div>
           </div>
+
           <div style="height: 26px;"></div>
-          <a class="btn btn-primary" href="https://forms.gle/REPLACE_CONSULT_FORM" target="_blank" rel="noopener noreferrer">30分だけ相談してみる</a>
+
+          <a class="btn btn-primary" href="https://timerex.net/s/kenji806162005_b1f5/738f0e57/" target="_blank" rel="noopener noreferrer">
+            30分だけ相談してみる
+          </a>
         </div>
       </div>
     </section>
@@ -633,26 +812,31 @@
             <h3>AIチーム化の始め方</h3>
             <p>ChatGPTだけで終わらせず、リサーチ・文章・制作・レビューなど役割別にAIを使い分ける考え方。</p>
           </article>
+
           <article class="card reveal delay-2">
             <span class="num">02</span>
             <h3>無料ツールでLPを作る方法</h3>
             <p>ChatGPT、GitHub Pages、Googleフォームを使って、非エンジニアでもLPを公開する流れ。</p>
           </article>
+
           <article class="card reveal delay-3">
             <span class="num">03</span>
             <h3>AIで資料を作る方法</h3>
             <p>マニュアル、提案書、チェックリスト、配布資料をAIと一緒に作る手順と品質を上げるコツ。</p>
           </article>
+
           <article class="card reveal delay-1">
             <span class="num">04</span>
             <h3>AI広報・note活用</h3>
             <p>考えを記事化し、実践記録として発信しながら、相談や信頼につなげる導線設計。</p>
           </article>
+
           <article class="card reveal delay-2">
             <span class="num">05</span>
             <h3>AI活用の棚卸し</h3>
             <p>今やっている業務の中で、どこをAIに任せられるか、どこは人が見るべきかを整理します。</p>
           </article>
+
           <article class="card reveal delay-3">
             <span class="num">06</span>
             <h3>最初の90日ロードマップ</h3>
@@ -671,6 +855,7 @@
           </div>
           <p class="section-desc">高度なシステム開発ではなく、まず自分の仕事や発信をAIで前に進めたい人向けです。</p>
         </div>
+
         <div class="pain-list reveal delay-1">
           <div class="pain-item">ChatGPTは使っているが、仕事に組み込めていない</div>
           <div class="pain-item">AIを使ってLPや資料を作りたいが、何から始めるか分からない</div>
@@ -697,21 +882,27 @@
             <div class="tag-row"><span class="tag">PDF</span><span class="tag">LP制作</span></div>
             <h3>LP制作マニュアル</h3>
             <p>非エンジニアがChatGPT、GitHub、GoogleフォームでLPを作るための図解ガイド。</p>
-            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_MANUAL" target="_blank" rel="noopener noreferrer">ダウンロード →</a>
+            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_MANUAL" target="_blank" rel="noopener noreferrer">
+              ダウンロード →
+            </a>
           </article>
 
           <article class="card reveal delay-2">
             <div class="tag-row"><span class="tag">Checklist</span><span class="tag">AI活用</span></div>
             <h3>AIチーム化チェックリスト</h3>
             <p>自分の業務にAIをどう組み込むか、役割別に整理するためのチェックリスト。</p>
-            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_CHECKLIST" target="_blank" rel="noopener noreferrer">ダウンロード →</a>
+            <a class="card-link" href="https://forms.gle/REPLACE_DOWNLOAD_FORM_CHECKLIST" target="_blank" rel="noopener noreferrer">
+              ダウンロード →
+            </a>
           </article>
 
           <article class="card reveal delay-3">
             <div class="tag-row"><span class="tag">note</span><span class="tag">Thoughts</span></div>
             <h3>noteの記事</h3>
             <p>AI活用、広報、スタートアップ、実践記録など、自分の考えをnoteで発信しています。</p>
-            <a class="card-link" href="https://note.com/ismarke_pro" target="_blank" rel="noopener noreferrer">noteを見る →</a>
+            <a class="card-link" href="https://note.com/ismarke_pro" target="_blank" rel="noopener noreferrer">
+              noteを見る →
+            </a>
           </article>
         </div>
 
@@ -722,7 +913,9 @@
             <h3>考え方はnoteにまとめています。</h3>
             <p>このサイトでは成果物を、noteでは背景にある考え方や実践プロセスを公開しています。</p>
           </div>
-          <a class="btn btn-ghost" href="https://note.com/ismarke_pro" target="_blank" rel="noopener noreferrer">noteを読む</a>
+          <a class="btn btn-ghost" href="https://note.com/ismarke_pro" target="_blank" rel="noopener noreferrer">
+            noteを読む
+          </a>
         </div>
       </div>
     </section>
@@ -738,8 +931,11 @@
               似た悩みがあれば、今できることを一緒に整理します。
             </p>
           </div>
+
           <div class="section-actions">
-            <a class="btn btn-primary" href="https://forms.gle/REPLACE_CONSULT_FORM" target="_blank" rel="noopener noreferrer">30分だけ相談してみる</a>
+            <a class="btn btn-primary" href="https://timerex.net/s/kenji806162005_b1f5/738f0e57/" target="_blank" rel="noopener noreferrer">
+              30分だけ相談してみる
+            </a>
             <a class="btn btn-ghost" href="#works">実績を見る</a>
           </div>
         </div>

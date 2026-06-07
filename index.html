@@ -592,16 +592,49 @@
       .benefit-list { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 640px) {
-      .container { width: min(100% - 28px, var(--max)); }
-      .nav-cta { display: none; }
-      .ai-stack, .pain-list { grid-template-columns: 1fr; }
-      .contact-box, .story-box, .note-strip, .benefit-box { padding: 24px; }
-      .btn { width: 100%; }
-      .hero-actions, .section-actions { width: 100%; }
-    }
-  </style>
-</head>
+   @media (max-width: 640px) {
+  .container { 
+    width: min(100% - 28px, var(--max)); 
+  }
+
+  .nav-cta { 
+    display: none; 
+  }
+
+  .ai-stack, 
+  .pain-list { 
+    grid-template-columns: 1fr; 
+  }
+
+  .contact-box, 
+  .story-box, 
+  .note-strip, 
+  .benefit-box { 
+    padding: 24px; 
+  }
+
+  .btn { 
+    width: 100%; 
+  }
+
+  .hero-actions, 
+  .section-actions { 
+    width: 100%; 
+  }
+
+  h1 {
+    font-size: 42px;
+    letter-spacing: -0.06em;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 64px 0;
+  }
+}
 
 <body>
   <nav class="nav">

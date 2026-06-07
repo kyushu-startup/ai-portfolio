@@ -61,6 +61,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       background: rgba(5,5,6,.62);
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
@@ -106,6 +107,11 @@
       font-weight: 800;
       font-size: 13px;
       background: rgba(216,183,106,.08);
+      transition: .22s ease;
+    }
+    .nav-cta:hover {
+      background: rgba(216,183,106,.18);
+      border-color: var(--gold);
     }
 
     .hero { padding: 112px 0 80px; }
@@ -498,6 +504,7 @@
       border: 1px solid rgba(216,183,106,.36);
       background: rgba(5,5,6,.52);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 5px 10px;
       border-radius: 999px;
       font-size: 11px;
@@ -583,7 +590,6 @@
       .hero-grid, .grid-3, .grid-2, .story-box, .contact-box, .note-strip {
         grid-template-columns: 1fr;
       }
-
       .hero { padding-top: 72px; }
       .hero-panel { min-height: auto; }
       .section-head { display: block; }
@@ -592,32 +598,24 @@
       .benefit-list { grid-template-columns: 1fr; }
     }
 
-@media (max-width: 640px) {
-
-  ...
-
-  section {
-    padding: 64px 0;
-  }
-
-  .thumb {
-    height: 180px;
-  }
-
-  .thumb-title {
-    font-size: 20px;
-  }
-
-  .story-quote {
-    font-size: 28px;
-  }
-
-  .contact-box h2 {
-    font-size: 34px;
-  }
-}
-
-</style>
+    @media (max-width: 640px) {
+      section {
+        padding: 64px 0;
+      }
+      .thumb {
+        height: 180px;
+      }
+      .thumb-title {
+        font-size: 20px;
+      }
+      .story-quote {
+        font-size: 28px;
+      }
+      .contact-box h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -668,7 +666,7 @@
             <a class="btn btn-ghost" href="#resources">資料を見る</a>
           </div>
 
-          <div class="microcopy">✓ 無料相談　✓ オンライン対応　✓ 非エンジニア歓迎</div>
+          <div class="microcopy">✓ 無料相談 ✓ オンライン対応 ✓ 非エンジニア歓迎</div>
         </div>
 
         <div class="hero-panel reveal delay-1" aria-label="AI team operator preview">
@@ -757,37 +755,26 @@
             </a>
           </article>
 
-         <article class="portfolio-card reveal delay-1">
-
-  <div class="thumb" style="background:url('./LP制作マニュアル.jpg') center center / cover no-repeat;">
-    <div class="thumb-badge">FREE DOWNLOAD</div>
-    <div class="thumb-title">LP制作マニュアル</div>
-  </div>
-
-  <div class="tag-row">
-    <span class="tag">62ページ</span>
-    <span class="tag">非エンジニア向け</span>
-    <span class="tag">0円制作</span>
-  </div>
-
-  <h3>非エンジニアのためのLP制作マニュアル</h3>
-
-  <p>
-    ChatGPT × GitHub Pages × Googleフォームで、
-    非エンジニアでも0円でLPを公開できる実践マニュアル。
-    実際に公開したLPを例に、制作から公開までを図解付きで解説しています。
-  </p>
-
-  <a
-    class="card-link"
-    href="https://docs.google.com/forms/d/1rLOwNivwuGTmw2p1jfup3m_OYYkJH_N4lB3f01RhJo0/viewform"
-    target="_blank"
-    rel="noopener noreferrer">
-
-    無料でダウンロードする →
-  </a>
-
-</article>
+          <article class="portfolio-card reveal delay-1">
+            <div class="thumb" style="background:url('./LP制作マニュアル.jpg') center center / cover no-repeat;">
+              <div class="thumb-badge">FREE DOWNLOAD</div>
+              <div class="thumb-title">LP制作マニュアル</div>
+            </div>
+            <div class="tag-row">
+              <span class="tag">62ページ</span>
+              <span class="tag">非エンジニア向け</span>
+              <span class="tag">0円制作</span>
+            </div>
+            <h3>非エンジニアのためのLP制作マニュアル</h3>
+            <p>
+              ChatGPT × GitHub Pages × Googleフォームで、
+              非エンジニアでも0円でLPを公開できる実践マニュアル。
+              実際に公開したLPを例に、制作から公開までを図解付きで解説しています。
+            </p>
+            <a class="card-link" href="https://docs.google.com/forms/d/1rLOwNivwuGTmw2p1jfup3m_OYYkJH_N4lB3f01RhJo0/viewform" target="_blank" rel="noopener noreferrer">
+              無料でダウンロードする →
+            </a>
+          </article>
 
           <article class="portfolio-card reveal delay-2">
             <div class="thumb" style="background:url('./aiteamwork.jpg') center center / cover no-repeat;">
@@ -914,55 +901,38 @@
         </div>
 
         <div class="grid-3">
-        <article class="card reveal delay-1">
+          <article class="card reveal delay-1">
+            <div class="tag-row">
+              <span class="tag">62ページ</span>
+              <span class="tag">LP制作</span>
+              <span class="tag">無料配布中</span>
+            </div>
+            <h3>LP制作マニュアル</h3>
+            <p>
+              ChatGPT × GitHub Pages × Googleフォームで、
+              非エンジニアでも0円でLPを公開できる実践ガイド。
+              実際の公開事例をもとに、制作から公開までを図解付きで解説しています。
+            </p>
+            <a class="card-link" href="https://docs.google.com/forms/d/1rLOwNivwuGTmw2p1jfup3m_OYYkJH_N4lB3f01RhJo0/viewform" target="_blank" rel="noopener noreferrer">
+              無料でダウンロードする →
+            </a>
+          </article>
 
-  <div class="tag-row">
-    <span class="tag">62ページ</span>
-    <span class="tag">LP制作</span>
-    <span class="tag">無料配布中</span>
-  </div>
-
-  <h3>LP制作マニュアル</h3>
-
-  <p>
-    ChatGPT × GitHub Pages × Googleフォームで、
-    非エンジニアでも0円でLPを公開できる実践ガイド。
-
-    実際の公開事例をもとに、
-    制作から公開までを図解付きで解説しています。
-  </p>
-
-  <a class="card-link"
-     href="https://docs.google.com/forms/d/1rLOwNivwuGTmw2p1jfup3m_OYYkJH_N4lB3f01RhJo0/viewform"
-     target="_blank"
-     rel="noopener noreferrer">
-
-     無料でダウンロードする →
-  </a>
-
-</article>
-
-      <article class="card reveal delay-2">
-
-  <div class="tag-row">
-    <span class="tag">COMING SOON</span>
-    <span class="tag">AI活用</span>
-  </div>
-
-  <h3>AIチーム化チェックリスト</h3>
-
-  <p>
-    自分の業務にAIをどう組み込むか、
-    役割別に整理するためのチェックリスト。
-
-    現在作成中です。
-  </p>
-
-  <span class="card-link" style="opacity:.6;cursor:default;">
-    準備中
-  </span>
-
-</article>
+          <article class="card reveal delay-2">
+            <div class="tag-row">
+              <span class="tag">COMING SOON</span>
+              <span class="tag">AI活用</span>
+            </div>
+            <h3>AIチーム化チェックリスト</h3>
+            <p>
+              自分の業務にAIをどう組み込むか、
+              役割別に整理するためのチェックリスト。
+              現在作成中です。
+            </p>
+            <span class="card-link" style="opacity:.6;cursor:default;">
+              準備中
+            </span>
+          </article>
 
           <article class="card reveal delay-3">
             <div class="tag-row"><span class="tag">note</span><span class="tag">Thoughts</span></div>
